@@ -80,9 +80,10 @@
         if (!itemHeight) {
             itemHeight = frameSize.height;
         }
-        
+        BOOL isIphoneX = ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO);
+
         [item setFrame:CGRectMake(self.contentEdgeInsets.left + (index * self.itemWidth),
-                                  roundf(frameSize.height - itemHeight) - self.contentEdgeInsets.top,
+                                  roundf(frameSize.height - itemHeight) - self.contentEdgeInsets.top - (isIphoneX ? 34 : 0),
                                   self.itemWidth, itemHeight - self.contentEdgeInsets.bottom)];
         [item setNeedsDisplay];
         
