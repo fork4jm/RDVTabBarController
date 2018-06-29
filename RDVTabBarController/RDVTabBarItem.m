@@ -120,7 +120,7 @@
     
     // Draw image and title
     
-    if (![_title length] && !_titleHidden) {
+    if (![_title length] || _titleHidden) {
         [image drawInRect:CGRectMake(roundf(frameSize.width / 2 - imageSize.width / 2) +
                                      _imagePositionAdjustment.horizontal,
                                      roundf(frameSize.height / 2 - imageSize.height / 2) +
