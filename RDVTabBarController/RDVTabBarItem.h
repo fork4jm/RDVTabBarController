@@ -37,6 +37,8 @@
  */
 @property (nonatomic, copy) NSString *title;
 
+@property (nonatomic, assign) BOOL titleHidden;
+
 /**
  * The offset for the rectangle around the tab bar item's title.
  */
