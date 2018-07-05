@@ -58,6 +58,20 @@
     [self setTabBarHidden:self.isTabBarHidden animated:NO];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if ([self.delegate isKindOfClass:[UINavigationController class]]) {
+        ((UINavigationController*)(self.delegate)).interactivePopGestureRecognizer.enabled = NO;
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    if ([self.delegate isKindOfClass:[UINavigationController class]]) {
+        ((UINavigationController*)(self.delegate)).interactivePopGestureRecognizer.enabled = YES;
+    }
+}
+
 //-(void)viewDidLayoutSubviews {
 //    [super viewDidLayoutSubviews];
 //    [self setTabBarHidden:self.isTabBarHidden animated:NO];
